@@ -1,1 +1,3 @@
 # mgs
+
+Music generation System
