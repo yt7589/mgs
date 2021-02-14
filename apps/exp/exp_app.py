@@ -1,6 +1,6 @@
 #
 import subprocess as spc
-from apps.exp.afe.afe_exp1 import AfeExp1
+from apps.exp.afe.afe_exp import AfeExp
 
 class ExpApp:
     def __init__(self):
@@ -8,7 +8,9 @@ class ExpApp:
     
     def startup(self, args={}):
         print('音频试验程序 v0.0.1')
-        AfeExp1.exp1()
+        #AfeExp.exp1()
+        #AfeExp.exp2()
+        #AfeExp.exp3()
 
     def convert_mp3_wav(mp3_file, wav_file):
         '''
