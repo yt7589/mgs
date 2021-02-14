@@ -7,7 +7,11 @@ class ExpApp:
     
     def startup(self, args={}):
         print('音频试验程序 v0.0.1')
-        p = spc.Popen("d:/software/ffmpeg/ffmpeg.exe", shell=True, stdout=spc.PIPE, universal_newlines=True)
+        mp3_file = 'E:/abiz/cszj/projects/mgs/work/a1.mp3'
+        wav_file= 'E:/abiz/cszj/projects/mgs/work/a1p.wav'
+        cmd_base = 'd:/software/ffmpeg/ffmpeg.exe -i {0} {1}'
+        cmd = cmd_base.format(mp3_file, wav_file)
+        p = spc.Popen(cmd, shell=True, stdout=spc.PIPE, universal_newlines=True)
         p.wait()
         result_lines = p.stdout.readlines()
         for line in result_lines:
