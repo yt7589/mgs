@@ -9,7 +9,7 @@ import plotly
 class AfeExp1:
     @staticmethod
     def exp1():
-        wav_file = 'E:/temp/pyAudioAnalysis/pyAudioAnalysis/data/scottish.wav'
+        wav_file = './deps/pyAudioAnalysis/pyAudioAnalysis/data/scottish.wav'
         fs, s = aIO.read_audio_file(wav_file)
         #IPython.display.display(IPython.display.Audio(wav_file))
         duration = len(s) / float(fs)
