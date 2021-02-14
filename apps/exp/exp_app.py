@@ -11,7 +11,8 @@ class ExpApp:
         #AfeExp.exp1()
         #AfeExp.exp2()
         #AfeExp.exp3()
-        AfeExp.exp4()
+        #AfeExp.exp4()
+        AfeExp.exp5()
 
     def convert_mp3_wav(mp3_file, wav_file):
         '''
