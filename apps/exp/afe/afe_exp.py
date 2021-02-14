@@ -7,8 +7,23 @@ import plotly.graph_objs as go
 import plotly
 import sklearn.svm as sks # import SVC
 #import IPython
+from core.ds.afe_ds import AfeDs
 
 class AfeExp:
+    @staticmethod
+    def test_afe_ds():
+        class_num = 2
+        base_folder = './deps/pyAudioAnalysis/pyAudioAnalysis/data/music/'
+        csv_file = './datas/acds.csv'
+        X, y = AfeDs.load_ds(class_num=class_num, base_folder=base_folder, csv_file=csv_file)
+        cl = sks.SVC(kernel='rbf', C=20) 
+        cl.fit(X, y)
+        X_t = np.array([X[0], X[15], X[2], X[11], X[3]])
+        print('X_t: {0};'.format(X_t.shape))
+        rst = cl.predict(X_t)
+        print(rst)
+
+
     data_folder = './deps/pyAudioAnalysis/pyAudioAnalysis/data/'
     wav_file = './deps/pyAudioAnalysis/pyAudioAnalysis/data/scottish.wav'
 
@@ -128,7 +143,7 @@ class AfeExp:
         print('X: {0}; {1};'.format(f.shape, f))
         # train the svm classifier
         cl = sks.SVC(kernel='rbf', C=20) 
-        cl.fit(f, y) 
+        cl.fit(f, y)
 
 
         p1 = go.Scatter(x=f1[0, :],  y=f1[1, :], name=class_names[0],

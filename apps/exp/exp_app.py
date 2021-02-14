@@ -8,11 +8,12 @@ class ExpApp:
     
     def startup(self, args={}):
         print('音频试验程序 v0.0.1')
+        AfeExp.test_afe_ds()
         #AfeExp.exp1()
         #AfeExp.exp2()
         #AfeExp.exp3()
         #AfeExp.exp4()
-        AfeExp.exp5()
+        #AfeExp.exp5()
 
     def convert_mp3_wav(mp3_file, wav_file):
         '''
