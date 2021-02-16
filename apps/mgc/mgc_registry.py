@@ -22,24 +22,24 @@ class MgcRegistry:
     # 定义相关参数
     # GRU1相关参数定义
     GRU1 = {
-        GruConst.L: 3,
-        GruConst.N: 6,
+        GruConst.L: 1,
+        GruConst.N: 4,
         GruConst.H_in: 65*13,
         GruConst.num_directions: 1,
         GruConst.hidden_size: 100,
         GruConst.num_layers: 1
     }
     GRU2 = {
-        GruConst.L: 3,
-        GruConst.N: 6,
+        GruConst.L: 1,
+        GruConst.N: 4,
         GruConst.H_in: 100,
         GruConst.num_directions: 1,
         GruConst.hidden_size: 500,
         GruConst.num_layers: 1
     }
     GRU3 = {
-        GruConst.L: 3,
-        GruConst.N: 6,
+        GruConst.L: 1,
+        GruConst.N: 4,
         GruConst.H_in: 500,
         GruConst.num_directions: 1,
         GruConst.hidden_size: 1000,

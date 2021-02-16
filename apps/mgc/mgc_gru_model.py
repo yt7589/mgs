@@ -68,9 +68,7 @@ class MgcGruModel(torch.nn.Module):
         a7 = self.flatten1(a6)
         a8 = self.linear1(a7)
         a9 = self.leakyReLU2(a8)
-        a10 = self.linear2(a9)
-        y = a10
-        return y
+        return self.linear2(a9)
 
     def build_model(self, input_dim):
         self.model = torch.nn.Sequential()

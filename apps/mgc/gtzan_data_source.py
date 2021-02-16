@@ -45,7 +45,7 @@ class GtzanDataSource:
         #Convert lists into numpy arrays
         inputs = data['mfcc']
         targets = data['labels'] 
-        return np.array(inputs), np.array(targets)
+        return np.array(inputs, dtype=np.float32), np.array(targets)
 
     def show_wav_file(self):
         wav_file = '{0}blues/blues.00000.wav'.format(self.ds_folder)
