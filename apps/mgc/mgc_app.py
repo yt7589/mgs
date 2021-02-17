@@ -16,7 +16,7 @@ class MgcApp:
 
     def startup(self, args={}):
         print('音乐流派分类')
-        i_debug = 1
+        i_debug = 10
         if 1 == i_debug:
             self.exp()
             return
@@ -32,6 +32,7 @@ class MgcApp:
         print('step 2')
         model = MgcGruModel(input_dim = GruConst.H_in, class_num=10)
         criterion = torch.nn.CrossEntropyLoss()
+        criterion1 = torch.nn.MSELoss()
         #optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
         optimizer = optim.Adam(model.parameters(), lr=0.001, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, amsgrad=False)
         epochs = 1
@@ -41,12 +42,13 @@ class MgcApp:
             running_loss = 0.0
             for i, data in enumerate(train_loader, 0):
                 X = data['X']
-                y = data['y']
+                y = data['y'].long()
                 optimizer.zero_grad()
                 X_ = X.reshape((1, X.shape[0], X.shape[1]))
                 y_ = model(X_)
                 #y_ = torch.argmax(y_raw, axis=1)
                 print('y: {0}; y_: {1};'.format(y, y_))
+                #loss = criterion1(y_, y)
                 loss = criterion(y_, y)
                 loss.backward()
                 optimizer.step()
@@ -71,6 +73,8 @@ class MgcApp:
         target = torch.randn(10)  # a dummy target, for example
         target = target.view(1, -1)  # make it the same shape as output
         criterion = torch.nn.MSELoss()
+        print('output: {0};'.format(output))
+        print('target: {0};'.format(target))
         loss = criterion(output, target)
         print(loss)
 
